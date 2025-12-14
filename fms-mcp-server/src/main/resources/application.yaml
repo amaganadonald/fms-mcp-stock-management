@@ -1,0 +1,36 @@
+server:
+  port: 9000
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: fms-ai-server
+
+  datasource:
+    url: jdbc:postgresql://localhost:5456/stock_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+  ai:
+    mcp:
+      server:
+        name: stock-mcp-server
+        type: sync
+        sse-endpoint: /sse
+        sse-message-endpoint: /mcp/message
+        version: 1.0.0
+logging:
+  pattern:
+    console:
+  level:
+    io:
+      modelcontextprotocol: TRACE
+    org:
+      springframework:
+        ai:
+          mcp: TRACE

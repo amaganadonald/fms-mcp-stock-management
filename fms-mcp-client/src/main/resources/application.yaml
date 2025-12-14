@@ -1,0 +1,26 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: fms-ai-client
+
+  ai:
+    mcp:
+      client:
+        type: sync
+        sse:
+          connections:
+            stock-server:
+              sse-endpoint: /sse
+              url: http://localhost:9000
+    openai:
+      api-key: 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
+      base-url: https://api.openai.com/v1
+      chat:
+        options:
+          model: gpt-4.1-mini
+          temperature: 0.2
+          max-tokens: 1024
+          top-p: 1.0
+          frequency-penalty: 0
+          presence-penalty: 0
