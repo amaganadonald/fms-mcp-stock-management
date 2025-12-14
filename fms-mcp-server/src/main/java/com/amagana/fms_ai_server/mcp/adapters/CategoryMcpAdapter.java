@@ -4,6 +4,8 @@ import com.amagana.fms_ai_server.annotations.McpToolService;
 import com.amagana.fms_ai_server.dto.CategoryRequestDTO;
 import com.amagana.fms_ai_server.dto.CategoryResponseDTO;
 import com.amagana.fms_ai_server.service.CategoryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 @McpToolService
 public class CategoryMcpAdapter {
 
+    private static final Logger log = LoggerFactory.getLogger(CategoryMcpAdapter.class);
     private final CategoryService categoryService;
 
     public CategoryMcpAdapter(CategoryService categoryService) {
@@ -24,6 +27,7 @@ public class CategoryMcpAdapter {
 
     @Tool(description = "Get List of All category")
     public List<CategoryResponseDTO> getAllCategory() {
+        log.info("Retrieves all categories");
         return categoryService.getAllCategory();
     }
 

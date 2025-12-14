@@ -15,5 +15,6 @@ public interface ProductMapper {
     @Mapping(target = "category", ignore = true)
     Products toProduct(ProductRequestDTO productRequestDTO);
 
+    @Mapping(target = "category", source = "category.libelle")
     ProductResponseDTO toProductDTO(Products products);
 }

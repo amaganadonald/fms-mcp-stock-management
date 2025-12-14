@@ -6,5 +6,5 @@ import com.amagana.fms_ai_server.enums.Units;
 import java.math.BigDecimal;
 
 public record ProductResponseDTO(Long id, String name, String reference, String description, BigDecimal purchase_price,
-                                 BigDecimal selling_price, Units unit, boolean active, Category category) {
+                                 BigDecimal selling_price, Units unit, boolean active, String category) {
 }

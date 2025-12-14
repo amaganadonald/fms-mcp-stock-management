@@ -5,7 +5,6 @@ import com.amagana.fms_ai_server.dto.ProductRequestDTO;
 import com.amagana.fms_ai_server.dto.ProductResponseDTO;
 import com.amagana.fms_ai_server.service.ProductService;
 import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.data.domain.Page;
 
 
@@ -30,24 +29,22 @@ public class ProductMcpAdapter {
     }
 
     @Tool(description = "Get Product by size of elements and page number")
-    public Page<ProductResponseDTO> getProductsByPage(@ToolParam(description = "number of elements to retrieves") int size,
-                                                      @ToolParam(description = "Page number") int page) {
+    public Page<ProductResponseDTO> getProductsByPage(int size, int page) {
         return productService.getProductsByPage(size, page);
     }
 
     @Tool(description = "Add product to database")
-    public ProductResponseDTO addProduct(@ToolParam(description = "Products information to add to database") ProductRequestDTO productRequestDTO) {
+    public ProductResponseDTO addProduct(ProductRequestDTO productRequestDTO) {
         return productService.addProduct(productRequestDTO);
     }
 
     @Tool(description = "Update product by given id and updated Product data")
-    public ProductResponseDTO updateProduct(@ToolParam(description = "Product id existing inside database") Long id,
-                                            @ToolParam(description = "Products information to add to update") ProductRequestDTO productRequestDTO) {
+    public ProductResponseDTO updateProduct(Long id, ProductRequestDTO productRequestDTO) {
         return productService.updateProduct(id, productRequestDTO);
     }
 
     @Tool(description = "Delete Product by given id if exist")
-    public void deleteProduct(@ToolParam(description = "Product id to delete inside database") Long id) {
+    public void deleteProduct(Long id) {
         productService.deleteProduct(id);
     }
 

@@ -13,14 +13,8 @@ spring:
             stock-server:
               sse-endpoint: /sse
               url: http://localhost:9000
+#        stdio:
+#          servers-configuration: classpath:mcp-servers.json
     openai:
       api-key:
-      base-url: https://api.openai.com/v1
-      chat:
-        options:
-          model: gpt-4.1-mini
-          temperature: 0.2
-          max-tokens: 1024
-          top-p: 1.0
-          frequency-penalty: 0
-          presence-penalty: 0
+
